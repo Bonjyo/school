@@ -1,0 +1,35 @@
+{
+  "projects": {
+    "default": "school-7a1cb",
+    "master": "school-7a1cb",
+    "prod": "school-7a1cb"
+  },
+  "ci": {
+    "createConfig": {
+      "master": {
+        "env": "staging",
+        "firebase": {
+          "apiKey": "${STAGE_FIREBASE_API_KEY}",
+          "authDomain": "school-7a1cb.firebaseapp.com",
+          "databaseURL": "https://school-7a1cb.firebaseio.com",
+          "projectId": "school-7a1cb",
+          "storageBucket": "school-7a1cb.appspot.com",
+          "messagingSenderId": "429702137628",
+          "appId": "1:429702137628:web:ec4c962d2f36714f"
+        }
+      },
+      "prod": {
+        "env": "production",
+        "firebase": {
+          "apiKey": "${PROD_FIREBASE_API_KEY}",
+          "authDomain": "school-7a1cb.firebaseapp.com",
+          "databaseURL": "https://school-7a1cb.firebaseio.com",
+          "projectId": "school-7a1cb",
+          "storageBucket": "school-7a1cb.appspot.com",
+          "messagingSenderId": "429702137628",
+          "appId": "1:429702137628:web:ec4c962d2f36714f"
+        }
+      }
+    }
+  }
+}
