@@ -15,7 +15,7 @@ module.exports = {
   },
   rules: {
     semi: [
-      2, 'never'
+      1, 'always'
     ],
     'no-console': 'error',
     'react/forbid-prop-types': 0,
@@ -27,16 +27,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'prettier/prettier': [
       'error',
-      {
-        singleQuote: true,
-        trailingComma: 'none',
-        semi: false,
-        bracketSpacing: true,
-        jsxBracketSameLine: true,
-        printWidth: 80,
-        tabWidth: 2,
-        useTabs: false
-      }
+      {}
     ]
   }
 }
