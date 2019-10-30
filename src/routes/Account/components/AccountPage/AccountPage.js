@@ -1,26 +1,26 @@
-import React from 'react'
-import Paper from '@material-ui/core/Paper'
-import { makeStyles } from '@material-ui/core/styles'
-import { useSelector } from 'react-redux'
-import { isLoaded, useFirebase } from 'react-redux-firebase'
-import LoadingSpinner from 'components/LoadingSpinner'
-import { useNotifications } from 'modules/notification'
-import defaultUserImageUrl from 'static/User.png'
-import AccountForm from '../AccountForm'
-import styles from './AccountPage.styles'
+import React from 'react';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import { useSelector } from 'react-redux';
+import { isLoaded, useFirebase } from 'react-redux-firebase';
+import LoadingSpinner from 'components/LoadingSpinner';
+import { useNotifications } from 'modules/notification';
+import defaultUserImageUrl from 'static/User.png';
+import AccountForm from '../AccountForm';
+import styles from './AccountPage.styles';
 
-const useStyles = makeStyles(styles)
+const useStyles = makeStyles(styles);
 
 function AccountPage() {
-  const classes = useStyles()
-  const firebase = useFirebase()
-  const { showSuccess, showError } = useNotifications()
-  
+  const classes = useStyles();
+  const firebase = useFirebase();
+  const { showSuccess, showError } = useNotifications();
+
   // Get profile from redux state
-  const profile = useSelector(state => state.firebase.profile)
+  const profile = useSelector(state => state.firebase.profile);
 
   if (!isLoaded(profile)) {
-    return <LoadingSpinner />
+    return <LoadingSpinner />;
   }
 
   function updateAccount(newAccount) {
@@ -28,10 +28,10 @@ function AccountPage() {
       .updateProfile(newAccount)
       .then(() => showSuccess('Profile updated successfully'))
       .catch(error => {
-        console.error('Error updating profile', error.message || error) // eslint-disable-line no-console
-        showError('Error updating profile: ', error.message || error)
-        return Promise.reject(error)
-      })
+        console.error('Error updating profile', error.message || error); // eslint-disable-line no-console
+        showError('Error updating profile: ', error.message || error);
+        return Promise.reject(error);
+      });
   }
 
   return (
@@ -55,7 +55,7 @@ function AccountPage() {
         </div>
       </Paper>
     </div>
-  )
+  );
 }
 
-export default AccountPage
+export default AccountPage;

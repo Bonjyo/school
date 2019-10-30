@@ -1,14 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Navbar from 'containers/Navbar'
-import { Notifications } from 'modules/notification'
-import { makeStyles } from '@material-ui/core/styles'
-import styles from './CoreLayout.styles'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Navbar from 'containers/Navbar';
+import { Notifications } from 'modules/notification';
+import { makeStyles } from '@material-ui/core/styles';
+import styles from './CoreLayout.styles';
 
-const useStyles = makeStyles(styles)
+const useStyles = makeStyles(styles);
 
 function CoreLayout({ children }) {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <div className={classes.container}>
@@ -16,11 +16,11 @@ function CoreLayout({ children }) {
       <div className={classes.children}>{children}</div>
       <Notifications />
     </div>
-  )
+  );
 }
 
 CoreLayout.propTypes = {
-  children: PropTypes.element.isRequired
-}
+  children: PropTypes.element.isRequired,
+};
 
-export default CoreLayout
+export default CoreLayout;

@@ -5,7 +5,7 @@ export default theme => ({
     flexGrow: 1,
     height: '100%',
     width: '100%',
-    margin: '.2rem'
+    margin: '.2rem',
   },
   submit: {
     ...theme.flexColumnCenter,
@@ -14,6 +14,6 @@ export default theme => ({
     textAlign: 'center',
     padding: '1.25rem',
     minWidth: '192px',
-    marginTop: '1.5rem'
-  }
-})
+    marginTop: '1.5rem',
+  },
+});

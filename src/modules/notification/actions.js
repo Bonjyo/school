@@ -1,10 +1,10 @@
 import {
   NOTIFICATION_SHOW,
   NOTIFICATION_DISMISS,
-  NOTIFICATION_CLEAR
-} from './actionTypes'
+  NOTIFICATION_CLEAR,
+} from './actionTypes';
 
-const defaultDismissTime = 2500 // 2.5 seconds
+const defaultDismissTime = 2500; // 2.5 seconds
 
 /**
  * Publish a notification. if `dismissAfter` is set, the notification will be
@@ -15,21 +15,21 @@ const defaultDismissTime = 2500 // 2.5 seconds
  * @param {Object} notif.dismissAfter - Time after which to dismiss notification (default time set in constants)
  */
 export function showNotification(notif) {
-  const payload = Object.assign({}, notif)
+  const payload = Object.assign({}, notif);
   // Set default id to now if none provided
   if (!payload.id) {
-    payload.id = Date.now()
+    payload.id = Date.now();
   }
   return dispatch => {
-    dispatch({ type: NOTIFICATION_SHOW, payload })
+    dispatch({ type: NOTIFICATION_SHOW, payload });
 
     setTimeout(() => {
       dispatch({
         type: NOTIFICATION_DISMISS,
-        payload: payload.id
-      })
-    }, payload.dismissAfter || defaultDismissTime)
-  }
+        payload: payload.id,
+      });
+    }, payload.dismissAfter || defaultDismissTime);
+  };
 }
 
 /**
@@ -37,7 +37,7 @@ export function showNotification(notif) {
  * @param {String} message - Message to show
  */
 export function showSuccess(message) {
-  return showNotification({ type: 'success', message })
+  return showNotification({ type: 'success', message });
 }
 
 /**
@@ -45,7 +45,10 @@ export function showSuccess(message) {
  * @param {String} message - Message to show
  */
 export function showError(message) {
-  return showNotification({ type: 'error', message: `Error: ${message || ''}` })
+  return showNotification({
+    type: 'error',
+    message: `Error: ${message || ''}`,
+  });
 }
 
 /**
@@ -55,13 +58,13 @@ export function showError(message) {
 export function dismissNotification(payload) {
   return {
     type: NOTIFICATION_DISMISS,
-    payload
-  }
+    payload,
+  };
 }
 
 /**
  * Clear all notifications
  */
 export function clearNotifications() {
-  return { type: NOTIFICATION_CLEAR }
+  return { type: NOTIFICATION_CLEAR };
 }

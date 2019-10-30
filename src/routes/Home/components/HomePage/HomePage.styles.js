@@ -1,8 +1,8 @@
 export default theme => ({
   root: {
-    ...theme.flexColumnCenter
+    ...theme.flexColumnCenter,
   },
   section: {
-    ...theme.flexColumnCenter
-  }
-})
+    ...theme.flexColumnCenter,
+  },
+});

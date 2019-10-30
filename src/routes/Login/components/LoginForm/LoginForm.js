@@ -1,16 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core/styles'
-import { Field } from 'redux-form'
-import TextField from 'components/FormTextField'
-import Button from '@material-ui/core/Button'
-import { required, validateEmail } from 'utils/form'
-import styles from './LoginForm.styles'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import { Field } from 'redux-form';
+import TextField from 'components/FormTextField';
+import Button from '@material-ui/core/Button';
+import { required, validateEmail } from 'utils/form';
+import styles from './LoginForm.styles';
 
-const useStyles = makeStyles(styles)
+const useStyles = makeStyles(styles);
 
 function LoginForm({ pristine, submitting, handleSubmit }) {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <form className={classes.root} onSubmit={handleSubmit}>
@@ -34,18 +34,19 @@ function LoginForm({ pristine, submitting, handleSubmit }) {
           color="primary"
           type="submit"
           variant="contained"
-          disabled={pristine || submitting}>
+          disabled={pristine || submitting}
+        >
           {submitting ? 'Loading' : 'Login'}
         </Button>
       </div>
     </form>
-  )
+  );
 }
 
 LoginForm.propTypes = {
   pristine: PropTypes.bool.isRequired, // from enhancer (reduxForm)
   submitting: PropTypes.bool.isRequired, // from enhancer (reduxForm)
-  handleSubmit: PropTypes.func.isRequired // from enhancer (reduxForm - calls onSubmit)
-}
+  handleSubmit: PropTypes.func.isRequired, // from enhancer (reduxForm - calls onSubmit)
+};
 
-export default LoginForm
+export default LoginForm;

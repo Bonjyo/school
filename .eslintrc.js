@@ -17,7 +17,7 @@ module.exports = {
     semi: [
       1, 'always'
     ],
-    'no-console': 'error',
+    'no-console': 'warn',
     'react/forbid-prop-types': 0,
     'react/require-default-props': 0,
     'react/jsx-filename-extension': 0,

@@ -1,29 +1,29 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import GoogleButton from 'react-google-button'
-import { useFirebase } from 'react-redux-firebase'
-import Paper from '@material-ui/core/Paper'
-import { makeStyles } from '@material-ui/core/styles'
-import { SIGNUP_PATH } from 'constants/paths'
-import { useNotifications } from 'modules/notification'
-import LoginForm from '../LoginForm'
-import styles from './LoginPage.styles'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import GoogleButton from 'react-google-button';
+import { useFirebase } from 'react-redux-firebase';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import { SIGNUP_PATH } from 'constants/paths';
+import { useNotifications } from 'modules/notification';
+import LoginForm from '../LoginForm';
+import styles from './LoginPage.styles';
 
-const useStyles = makeStyles(styles)
+const useStyles = makeStyles(styles);
 
 function LoginPage() {
-  const classes = useStyles()
-  const firebase = useFirebase()
-  const { showError } = useNotifications()
+  const classes = useStyles();
+  const firebase = useFirebase();
+  const { showError } = useNotifications();
 
   const onSubmitFail = (formErrs, dispatch, err) =>
-    showError(formErrs ? 'Form Invalid' : err.message || 'Error')
+    showError(formErrs ? 'Form Invalid' : err.message || 'Error');
   const googleLogin = () =>
     firebase
       .login({ provider: 'google', type: 'popup' })
-      .catch(err => showError(err.message))
+      .catch(err => showError(err.message));
   const emailLogin = creds =>
-    firebase.login(creds).catch(err => showError(err.message))
+    firebase.login(creds).catch(err => showError(err.message));
 
   return (
     <div className={classes.root}>
@@ -41,7 +41,7 @@ function LoginPage() {
         </Link>
       </div>
     </div>
-  )
+  );
 }
 
-export default LoginPage
+export default LoginPage;

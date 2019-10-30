@@ -1,3 +1,4 @@
 import ProfilePage from './ProfilePage';
+import enhance from './ProfilePage.enhancer';
 
-export default ProfilePage;
+export default enhance(ProfilePage);

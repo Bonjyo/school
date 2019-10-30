@@ -3,9 +3,9 @@ export default theme => ({
     ...theme.flexColumnCenter,
     justifyContent: 'flex-start',
     width: '100%',
-    height: '100%'
+    height: '100%',
   },
   fields: {
-    width: '60%'
-  }
-})
+    width: '60%',
+  },
+});
