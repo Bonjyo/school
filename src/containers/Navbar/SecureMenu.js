@@ -13,7 +13,12 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import Badge from '@material-ui/core/Badge';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { ACCOUNT_PATH } from 'constants/paths';
+import {
+  ACCOUNT_PATH,
+  ALERTS_PATH,
+  NOTIFICATIONS_PATH,
+  PROFILE_PATH,
+} from 'constants/paths';
 
 const useStyles = makeStyles(() => ({
   buttonRoot: {
@@ -38,9 +43,19 @@ function SecureMenu() {
     history.push(ACCOUNT_PATH);
   }
 
+  function goToAlerts() {
+    handleMenuClose();
+    history.push(ALERTS_PATH);
+  }
+
+  function goToNotifications() {
+    handleMenuClose();
+    history.push(NOTIFICATIONS_PATH);
+  }
+
   function goToProile() {
     handleMenuClose();
-    history.push(ACCOUNT_PATH);
+    history.push(PROFILE_PATH);
   }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -93,7 +108,7 @@ function SecureMenu() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem onClick={goToAlerts}>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
             <MailIcon />
@@ -101,7 +116,7 @@ function SecureMenu() {
         </IconButton>
         <p>Messages</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={goToNotifications}>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
             <NotificationsIcon />
@@ -138,12 +153,20 @@ function SecureMenu() {
     <Fragment>
       <div className={classes.grow} />
       <div className={classes.sectionDesktop}>
-        <IconButton aria-label="show 4 new mails" color="inherit">
+        <IconButton
+          onClick={goToAlerts}
+          aria-label="show 4 new mails"
+          color="inherit"
+        >
           <Badge badgeContent={4} color="secondary">
             <MailIcon />
           </Badge>
         </IconButton>
-        <IconButton aria-label="show 17 new notifications" color="inherit">
+        <IconButton
+          onClick={goToNotifications}
+          aria-label="show 17 new notifications"
+          color="inherit"
+        >
           <Badge badgeContent={17} color="secondary">
             <NotificationsIcon />
           </Badge>

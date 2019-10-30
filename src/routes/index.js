@@ -6,6 +6,9 @@ import LoginRoute from './Login';
 import SignupRoute from './Signup';
 import ProjectsRoute from './Projects';
 import AccountRoute from './Account';
+import ProfileRoute from './Profile';
+import AlertsRoute from './Alerts';
+import NotificationsRoute from './Notifications';
 import NotFoundRoute from './NotFound';
 
 export default function createRoutes(store) {
@@ -19,6 +22,9 @@ export default function createRoutes(store) {
           ProjectsRoute,
           SignupRoute,
           LoginRoute,
+          ProfileRoute,
+          AlertsRoute,
+          NotificationsRoute,
           /* Add More Routes Here */
         ].map((settings, index) => (
           <Route key={`Route-${index}`} {...settings} />

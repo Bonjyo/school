@@ -1,16 +1,16 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
-import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect'
-import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper'
-import { createBrowserHistory } from 'history'
-import LoadingSpinner from 'components/LoadingSpinner'
-import { LIST_PATH } from 'constants/paths'
+import React from 'react';
+import { Route } from 'react-router-dom';
+import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect';
+import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
+import { createBrowserHistory } from 'history';
+import LoadingSpinner from 'components/LoadingSpinner';
+import { LIST_PATH } from 'constants/paths';
 
-const locationHelper = locationHelperBuilder({})
-const history = createBrowserHistory()
+const locationHelper = locationHelperBuilder({});
+const history = createBrowserHistory();
 
-const AUTHED_REDIRECT = 'AUTHED_REDIRECT'
-const UNAUTHED_REDIRECT = 'UNAUTHED_REDIRECT'
+const AUTHED_REDIRECT = 'AUTHED_REDIRECT';
+const UNAUTHED_REDIRECT = 'UNAUTHED_REDIRECT';
 
 /**
  * Higher Order Component that redirects to `/login` instead
@@ -29,13 +29,13 @@ export const UserIsAuthenticated = connectedRouterRedirect({
     !auth.isLoaded || isInitializing,
   redirectAction: newLoc => dispatch => {
     // Use push, replace, and go to navigate around.
-    history.push(newLoc)
+    history.push(newLoc);
     dispatch({
       type: UNAUTHED_REDIRECT,
-      payload: { message: 'User is not authenticated.' }
-    })
-  }
-})
+      payload: { message: 'User is not authenticated.' },
+    });
+  },
+});
 
 /**
  * Higher Order Component that redirects to listings page or most
@@ -57,13 +57,13 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
     locationHelper.getRedirectQueryParam(ownProps) || LIST_PATH,
   redirectAction: newLoc => dispatch => {
     // Use push, replace, and go to navigate around.
-    history.push(newLoc)
+    history.push(newLoc);
     dispatch({
       type: AUTHED_REDIRECT,
-      payload: { message: 'User is not authenticated.' }
-    })
-  }
-})
+      payload: { message: 'User is not authenticated.' },
+    });
+  },
+});
 
 /**
  * Render children based on route config objects
@@ -78,5 +78,5 @@ export function renderChildren(routes, match, parentProps) {
       path={`${match.url}/${route.path}`}
       render={props => <route.component {...parentProps} {...props} />}
     />
-  ))
+  ));
 }

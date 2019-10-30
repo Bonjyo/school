@@ -1,18 +1,18 @@
-import { applyMiddleware, compose, createStore } from 'redux'
-import thunk from 'redux-thunk'
-import { getFirebase } from 'react-redux-firebase'
-import makeRootReducer from './reducers'
+import { applyMiddleware, compose, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import { getFirebase } from 'react-redux-firebase';
+import makeRootReducer from './reducers';
 
 export default (initialState = {}) => {
   // ======================================================
   // Store Enhancers
   // ======================================================
-  const enhancers = []
+  const enhancers = [];
 
   if (window && window.location && window.location.hostname === 'localhost') {
-    const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__
+    const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
     if (typeof devToolsExtension === 'function') {
-      enhancers.push(devToolsExtension())
+      enhancers.push(devToolsExtension());
     }
   }
 
@@ -20,9 +20,9 @@ export default (initialState = {}) => {
   // Middleware Configuration
   // ======================================================
   const middleware = [
-    thunk.withExtraArgument(getFirebase)
+    thunk.withExtraArgument(getFirebase),
     // This is where you add other middleware like redux-observable
-  ]
+  ];
 
   // ======================================================
   // Store Instantiation and HMR Setup
@@ -34,16 +34,16 @@ export default (initialState = {}) => {
       applyMiddleware(...middleware),
       ...enhancers
     )
-  )
+  );
 
-  store.asyncReducers = {}
+  store.asyncReducers = {};
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
-      const reducers = require('./reducers').default // eslint-disable-line global-require
-      store.replaceReducer(reducers(store.asyncReducers))
-    })
+      const reducers = require('./reducers').default; // eslint-disable-line global-require
+      store.replaceReducer(reducers(store.asyncReducers));
+    });
   }
 
-  return store
-}
+  return store;
+};

@@ -1,21 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   ACCOUNT_PATH,
   LIST_PATH,
   LOGIN_PATH,
-  SIGNUP_PATH
-} from 'constants/paths'
-import styles from './HomePage.styles'
+  SIGNUP_PATH,
+  PROFILE_PATH,
+} from 'constants/paths';
+import styles from './HomePage.styles';
 
-const authWrapperUrl = 'https://github.com/mjrussell/redux-auth-wrapper'
-const reactRouterUrl = 'https://github.com/ReactTraining/react-router'
+const authWrapperUrl = 'https://github.com/mjrussell/redux-auth-wrapper';
+const reactRouterUrl = 'https://github.com/ReactTraining/react-router';
 
-const useStyles = makeStyles(styles)
+const useStyles = makeStyles(styles);
 
 function Home() {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <div className={classes.root}>
@@ -32,7 +33,8 @@ function Home() {
                 <a
                   href={reactRouterUrl}
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   react-router
                 </a>
               </span>
@@ -40,7 +42,8 @@ function Home() {
               <a
                 href={authWrapperUrl}
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+              >
                 redux-auth-wrapper
               </a>
             </div>
@@ -58,6 +61,9 @@ function Home() {
             </li>
             <li>
               <Link to={ACCOUNT_PATH}>Account</Link>
+            </li>
+            <li>
+              <Link to={PROFILE_PATH}>Profile</Link>
             </li>
           </ul>
         </div>
@@ -85,7 +91,8 @@ function Home() {
                 <a
                   href={reactRouterUrl}
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   redux-form
                 </a>
               </span>
@@ -98,7 +105,7 @@ function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
