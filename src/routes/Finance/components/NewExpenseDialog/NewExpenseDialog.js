@@ -9,22 +9,46 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Field } from 'redux-form';
 import TextField from 'components/FormTextField';
 import { required } from 'utils/form';
-import styles from './NewProjectDialog.styles';
+import styles from './NewExpenseDialog.styles';
 
 const useStyles = makeStyles(styles);
 
-function NewProjectDialog({ handleSubmit, open, onRequestClose }) {
+function NewExpenseDialog({ handleSubmit, open, onRequestClose }) {
   const classes = useStyles();
 
   return (
     <Dialog open={open} onClose={onRequestClose}>
-      <DialogTitle id="new-project-dialog-title">New Project</DialogTitle>
+      <DialogTitle id="new-expense-dialog-title">New Expense</DialogTitle>
       <form onSubmit={handleSubmit} className={classes.inputs}>
         <DialogContent>
           <Field
             name="name"
             component={TextField}
-            label="Project Name"
+            label="Expense Name"
+            validate={[required]}
+          />
+        </DialogContent>
+        <DialogContent>
+          <Field
+            name="amount"
+            component={TextField}
+            label="Amount"
+            validate={[required]}
+          />
+        </DialogContent>
+        <DialogContent>
+          <Field
+            name="date"
+            component={TextField}
+            label="Date"
+            validate={[required]}
+          />
+        </DialogContent>
+        <DialogContent>
+          <Field
+            name="category"
+            component={TextField}
+            label="Category"
             validate={[required]}
           />
         </DialogContent>
@@ -41,10 +65,10 @@ function NewProjectDialog({ handleSubmit, open, onRequestClose }) {
   );
 }
 
-NewProjectDialog.propTypes = {
+NewExpenseDialog.propTypes = {
   handleSubmit: PropTypes.func.isRequired, // from enhancer (reduxForm)
   open: PropTypes.bool.isRequired,
   onRequestClose: PropTypes.func.isRequired,
 };
 
-export default NewProjectDialog;
+export default NewExpenseDialog;

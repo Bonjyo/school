@@ -9,10 +9,11 @@ import ProjectRoute from 'routes/Projects/routes/Project';
 import { useNotifications } from 'modules/notification';
 import { renderChildren } from 'utils/router';
 import LoadingSpinner from 'components/LoadingSpinner';
-import ProjectTile from '../ProjectTile';
+
+import ExpenseTile from '../ExpenseTile';
 import NewProjectTile from '../NewProjectTile';
-import NewProjectDialog from '../NewProjectDialog';
-import styles from './ProjectsPage.styles';
+import NewExpenseDialog from '../NewExpenseDialog';
+import styles from './FinancePage.styles';
 
 const useStyles = makeStyles(styles);
 
@@ -87,7 +88,7 @@ function FinancePage({ match }) {
         path={match.path}
         render={() => (
           <div className={classes.root}>
-            <NewProjectDialog
+            <NewExpenseDialog
               onSubmit={addProject}
               open={newDialogOpen}
               onRequestClose={toggleDialog}
@@ -97,7 +98,7 @@ function FinancePage({ match }) {
               {!isEmpty(projects) &&
                 projects.map((project, ind) => {
                   return (
-                    <ProjectTile
+                    <ExpenseTile
                       key={`Project-${project.key}-${ind}`}
                       name={project.value.name}
                       projectId={project.key}

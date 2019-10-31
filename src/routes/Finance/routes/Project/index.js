@@ -1,9 +1,9 @@
 import { Loadable } from 'utils/components';
 
 export default {
-  path: ':projectId',
+  path: ':expenseId',
   component: Loadable({
     loader: () =>
-      import(/* webpackChunkName: 'Project' */ './components/ProjectPage'),
+      import(/* webpackChunkName: 'Expense' */ './components/ExpensePage'),
   }),
 };

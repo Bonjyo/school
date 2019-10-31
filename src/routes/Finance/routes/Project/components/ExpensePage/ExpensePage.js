@@ -7,20 +7,20 @@ import { useFirebaseConnect, isLoaded } from 'react-redux-firebase';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LoadingSpinner from 'components/LoadingSpinner';
-import styles from './ProjectPage.styles';
+import styles from './ExpensePage.styles';
 
 const useStyles = makeStyles(styles);
 
-function ProjectPage() {
-  const { projectId } = useParams();
+function ExpensePage() {
+  const { expenseId } = useParams();
   const classes = useStyles();
 
   // Create listener for projects
-  useFirebaseConnect(() => [{ path: `projects/${projectId}` }]);
+  useFirebaseConnect(() => [{ path: `expenses/${expenseId}` }]);
 
   // Get projects from redux state
   const project = useSelector(({ firebase: { data } }) => {
-    return data.projects && data.projects[projectId];
+    return data.projects && data.projects[expenseId];
   });
 
   // Show loading spinner while project is loading
@@ -33,9 +33,9 @@ function ProjectPage() {
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} component="h2">
-            {project.name || 'Project'}
+            {project.name || 'Expense'}
           </Typography>
-          <Typography className={classes.subtitle}>{projectId}</Typography>
+          <Typography className={classes.subtitle}>{expenseId}</Typography>
           <div style={{ marginTop: '10rem' }}>
             <pre>{JSON.stringify(project, null, 2)}</pre>
           </div>
@@ -45,4 +45,4 @@ function ProjectPage() {
   );
 }
 
-export default ProjectPage;
+export default ExpensePage;

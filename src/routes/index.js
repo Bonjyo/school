@@ -7,6 +7,7 @@ import SignupRoute from './Signup';
 import ProjectsRoute from './Projects';
 import AccountRoute from './Account';
 import ProfileRoute from './Profile';
+import FinanceRoute from './Finance';
 import AlertsRoute from './Alerts';
 import NotificationsRoute from './Notifications';
 import NotFoundRoute from './NotFound';
@@ -23,6 +24,7 @@ export default function createRoutes(store) {
           SignupRoute,
           LoginRoute,
           ProfileRoute,
+          FinanceRoute,
           AlertsRoute,
           NotificationsRoute,
           /* Add More Routes Here */
