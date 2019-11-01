@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty, isLoaded } from 'react-redux-firebase';
 import { Route, Switch } from 'react-router-dom';
@@ -9,6 +9,14 @@ import ProjectRoute from 'routes/Projects/routes/Project';
 import { useNotifications } from 'modules/notification';
 import { renderChildren } from 'utils/router';
 import LoadingSpinner from 'components/LoadingSpinner';
+import { Paper, Tabs, Tab } from '@material-ui/core';
+import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
+import AppsIcon from '@material-ui/icons/Apps';
+import ListIcon from '@material-ui/icons/List';
+// import { AppsIcon, ListIcon } from '@material-ui/icons';
+import { Container, CssBaseline, Typography } from '@material-ui/core';
+// import Typography from '@material-ui/core/Typography';
+// import Container from '@material-ui/core/Container';
 
 import ExpenseTile from '../ExpenseTile';
 import NewProjectTile from '../NewProjectTile';
@@ -73,10 +81,65 @@ function FinancePage({ match }) {
     toggleDialog,
   } = useProjects();
 
+  const [selectedTab, setSelectedTab] = React.useState(0);
+  const [viewBy, setViewBy] = React.useState('left');
+
+  const handleTabChange = (event, newTab) => {
+    setSelectedTab(newTab);
+  };
+
+  const handleViewBy = (event, viewBy) => {
+    setViewBy(viewBy);
+  };
+
   // Show spinner while projects are loading
   if (!isLoaded(projects)) {
     return <LoadingSpinner />;
   }
+
+  const tabs = (
+    <Paper className={classes.root}>
+      <Tabs
+        value={selectedTab}
+        onChange={handleTabChange}
+        indicatorColor="primary"
+        textColor="primary"
+        centered
+      >
+        <Tab label="By year" />
+        <Tab label="Expense list" />
+        <Tab label="Item Three" />
+      </Tabs>
+    </Paper>
+  );
+
+  const toggleSwitch = (
+    <ToggleButtonGroup
+      value={viewBy}
+      exclusive
+      onChange={handleViewBy}
+      aria-label="View By"
+    >
+      <ToggleButton value="left" aria-label="Grid View">
+        <AppsIcon />
+      </ToggleButton>
+      <ToggleButton value="center" aria-label="List View">
+        <ListIcon />
+      </ToggleButton>
+    </ToggleButtonGroup>
+  );
+
+  const asd = (
+    <Fragment>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <Typography
+          component="div"
+          style={{ backgroundColor: '#cfe8fc', height: '100vh' }}
+        />
+      </Container>
+    </Fragment>
+  );
 
   return (
     <Switch>
@@ -88,6 +151,7 @@ function FinancePage({ match }) {
         path={match.path}
         render={() => (
           <div className={classes.root}>
+            {toggleSwitch}
             <NewExpenseDialog
               onSubmit={addProject}
               open={newDialogOpen}

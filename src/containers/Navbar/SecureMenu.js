@@ -11,6 +11,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Badge from '@material-ui/core/Badge';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -18,6 +19,7 @@ import {
   ALERTS_PATH,
   NOTIFICATIONS_PATH,
   PROFILE_PATH,
+  FINANCE_PATH,
 } from 'constants/paths';
 
 const useStyles = makeStyles(() => ({
@@ -56,6 +58,11 @@ function SecureMenu() {
   function goToProile() {
     handleMenuClose();
     history.push(PROFILE_PATH);
+  }
+
+  function goToFinance() {
+    handleMenuClose();
+    history.push(FINANCE_PATH);
   }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -108,6 +115,12 @@ function SecureMenu() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <MenuItem onClick={goToFinance}>
+        <IconButton aria-label="Manage your finances" color="inherit">
+          <MonetizationOnIcon />
+        </IconButton>
+        <p>Finance</p>
+      </MenuItem>
       <MenuItem onClick={goToAlerts}>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
@@ -153,6 +166,13 @@ function SecureMenu() {
     <Fragment>
       <div className={classes.grow} />
       <div className={classes.sectionDesktop}>
+        <IconButton
+          onClick={goToFinance}
+          aria-label="Manage your finances"
+          color="inherit"
+        >
+          <MonetizationOnIcon />
+        </IconButton>
         <IconButton
           onClick={goToAlerts}
           aria-label="show 4 new mails"

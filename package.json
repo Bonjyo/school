@@ -28,6 +28,7 @@
   "dependencies": {
     "@material-ui/core": "^4.4.0",
     "@material-ui/icons": "^4.4.0",
+    "@material-ui/lab": "^4.0.0-alpha.30",
     "firebase": "^6.6.0",
     "history": "^4.9.0",
     "lodash": "^4.17.15",
