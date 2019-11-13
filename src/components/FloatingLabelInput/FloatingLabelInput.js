@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 
-function FormTextField({
+function FloatingLabelInput({
   label,
   input,
   meta: { touched, invalid, error },
@@ -20,8 +20,8 @@ function FormTextField({
   );
 }
 
-FormTextField.propTypes = {
+FloatingLabelInput.propTypes = {
   formTextField: PropTypes.object,
 };
 
-export default FormTextField;
+export default FloatingLabelInput;

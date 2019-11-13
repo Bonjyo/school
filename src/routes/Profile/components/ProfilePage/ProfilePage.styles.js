@@ -4,4 +4,7 @@ export default () => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  formDialog: {
+    width: '75%',
+  },
 });

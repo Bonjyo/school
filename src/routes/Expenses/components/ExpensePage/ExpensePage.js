@@ -71,7 +71,7 @@ function useProjects() {
   return { auth, projects, addProject, newDialogOpen, toggleDialog };
 }
 
-function FinancePage({ match }) {
+function ExpensePage({ match }) {
   const classes = useStyles();
   const {
     auth,
@@ -177,8 +177,8 @@ function FinancePage({ match }) {
   );
 }
 
-FinancePage.propTypes = {
+ExpensePage.propTypes = {
   match: PropTypes.object.isRequired, // from enhancer (withRouter)
 };
 
-export default FinancePage;
+export default ExpensePage;
