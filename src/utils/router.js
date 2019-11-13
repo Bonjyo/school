@@ -1,10 +1,10 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect';
-import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
-import { createBrowserHistory } from 'history';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { LIST_PATH } from 'constants/paths';
+import { createBrowserHistory } from 'history';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
+import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect';
 
 const locationHelper = locationHelperBuilder({});
 const history = createBrowserHistory();

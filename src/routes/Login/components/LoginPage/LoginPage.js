@@ -1,11 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import GoogleButton from 'react-google-button';
-import { useFirebase } from 'react-redux-firebase';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import { SIGNUP_PATH } from 'constants/paths';
 import { useNotifications } from 'modules/notification';
+import React from 'react';
+import GoogleButton from 'react-google-button';
+import { useFirebase } from 'react-redux-firebase';
+import { Link } from 'react-router-dom';
+
 import LoginForm from '../LoginForm';
 import styles from './LoginPage.styles';
 

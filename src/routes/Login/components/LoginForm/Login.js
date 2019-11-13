@@ -1,7 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Field } from 'redux-form';
-import TextField from 'components/FormTextField';
 import {
   Button,
   Dialog,
@@ -12,6 +8,10 @@ import {
   Slide,
   withMobileDialog,
 } from '@material-ui/core';
+import TextField from 'components/FormTextField';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Field } from 'redux-form';
 import { required, validateEmail } from 'utils/form';
 
 const Transition = React.forwardRef(function Transition(props, ref) {

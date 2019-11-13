@@ -1,8 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
 import Navbar from 'containers/Navbar';
 import { Notifications } from 'modules/notification';
-import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import React from 'react';
+
 import styles from './CoreLayout.styles';
 
 const useStyles = makeStyles(styles);

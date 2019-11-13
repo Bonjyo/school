@@ -1,5 +1,5 @@
-import { reduxForm } from 'redux-form';
 import { NEW_EXPENSE_FORM_NAME } from 'constants/formNames';
+import { reduxForm } from 'redux-form';
 
 export default reduxForm({
   form: NEW_EXPENSE_FORM_NAME,

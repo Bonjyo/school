@@ -1,5 +1,5 @@
-import { Loadable } from 'utils/components';
 import { ALERTS_PATH as path } from 'constants/paths';
+import { Loadable } from 'utils/components';
 
 export default {
   path,

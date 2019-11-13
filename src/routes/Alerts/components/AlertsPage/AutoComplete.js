@@ -1,7 +1,4 @@
 /* eslint-disable no-use-before-define */
-import React from 'react';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import { makeStyles } from '@material-ui/core/styles';
 import {
   Checkbox,
   Chip,
@@ -13,10 +10,12 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import { makeStyles } from '@material-ui/core/styles';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
-
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import clsx from 'clsx';
+import React from 'react';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;

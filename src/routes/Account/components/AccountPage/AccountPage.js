@@ -1,11 +1,12 @@
-import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import { useSelector } from 'react-redux';
-import { isLoaded, useFirebase } from 'react-redux-firebase';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { useNotifications } from 'modules/notification';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { isLoaded, useFirebase } from 'react-redux-firebase';
 import defaultUserImageUrl from 'static/User.png';
+
 import AccountForm from '../AccountForm';
 import styles from './AccountPage.styles';
 

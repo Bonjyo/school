@@ -1,10 +1,12 @@
-import React from 'react';
 import { Button, makeStyles, Typography } from '@material-ui/core';
-import SliderDialog from 'components/SliderDialog';
 import CustomDialog from 'components/CustomDialog';
 import Media from 'components/Media';
-import styles from './ProfilePage.styles';
+import SliderDialog from 'components/SliderDialog';
+import React from 'react';
+
 import ProfileForm from './ProfileForm';
+import styles from './ProfilePage.styles';
+
 const useStyles = makeStyles(styles);
 
 function ProfilePage() {

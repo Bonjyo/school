@@ -1,16 +1,17 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+
 import CoreLayout from '../layouts/CoreLayout';
+import AccountRoute from './Account';
+import AlertsRoute from './Alerts';
+import FinanceRoute from './Finance';
 import Home from './Home';
 import LoginRoute from './Login';
-import SignupRoute from './Signup';
-import ProjectsRoute from './Projects';
-import AccountRoute from './Account';
-import ProfileRoute from './Profile';
-import FinanceRoute from './Finance';
-import AlertsRoute from './Alerts';
-import NotificationsRoute from './Notifications';
 import NotFoundRoute from './NotFound';
+import NotificationsRoute from './Notifications';
+import ProfileRoute from './Profile';
+import ProjectsRoute from './Projects';
+import SignupRoute from './Signup';
 
 export default function createRoutes(store) {
   return (

@@ -1,7 +1,8 @@
-import { combineReducers } from 'redux';
-import { reducer as firebase } from 'react-redux-firebase';
-import { reducer as form } from 'redux-form';
 import { reducer as notifications } from 'modules/notification';
+import { reducer as firebase } from 'react-redux-firebase';
+import { combineReducers } from 'redux';
+import { reducer as form } from 'redux-form';
+
 import locationReducer from './location';
 
 export function makeRootReducer(asyncReducers) {

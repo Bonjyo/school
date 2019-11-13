@@ -1,26 +1,36 @@
-import React, { Fragment, useState } from 'react';
-import PropTypes from 'prop-types';
-import { isEmpty, isLoaded } from 'react-redux-firebase';
-import { Route, Switch } from 'react-router-dom';
+// import { AppsIcon, ListIcon } from '@material-ui/icons';
+import {
+  Container,
+  CssBaseline,
+  Paper,
+  Tab,
+  Tabs,
+  Typography,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { useSelector } from 'react-redux';
-import { useFirebase, useFirebaseConnect } from 'react-redux-firebase';
-import ProjectRoute from 'routes/Projects/routes/Project';
-import { useNotifications } from 'modules/notification';
-import { renderChildren } from 'utils/router';
-import LoadingSpinner from 'components/LoadingSpinner';
-import { Paper, Tabs, Tab } from '@material-ui/core';
-import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import AppsIcon from '@material-ui/icons/Apps';
 import ListIcon from '@material-ui/icons/List';
-// import { AppsIcon, ListIcon } from '@material-ui/icons';
-import { Container, CssBaseline, Typography } from '@material-ui/core';
+import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
+import LoadingSpinner from 'components/LoadingSpinner';
+import { useNotifications } from 'modules/notification';
+import PropTypes from 'prop-types';
+import React, { Fragment, useState } from 'react';
+import { useSelector } from 'react-redux';
+import {
+  isEmpty,
+  isLoaded,
+  useFirebase,
+  useFirebaseConnect,
+} from 'react-redux-firebase';
+import { Route, Switch } from 'react-router-dom';
+import ProjectRoute from 'routes/Projects/routes/Project';
+import { renderChildren } from 'utils/router';
+
 // import Typography from '@material-ui/core/Typography';
 // import Container from '@material-ui/core/Container';
-
 import ExpenseTile from '../ExpenseTile';
-import NewExpenseTile from '../NewExpenseTile';
 import NewExpenseDialog from '../NewExpenseDialog';
+import NewExpenseTile from '../NewExpenseTile';
 import styles from './FinancePage.styles';
 
 const useStyles = makeStyles(styles);

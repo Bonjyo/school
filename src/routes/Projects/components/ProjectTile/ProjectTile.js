@@ -1,15 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
-import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { makeStyles } from '@material-ui/core/styles';
-import { useFirebase } from 'react-redux-firebase';
 import { LIST_PATH } from 'constants/paths';
-import styles from './ProjectTile.styles';
 import useNotifications from 'modules/notification/components/useNotifications';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useFirebase } from 'react-redux-firebase';
+import { useHistory } from 'react-router-dom';
+
+import styles from './ProjectTile.styles';
 
 const useStyles = makeStyles(styles);
 

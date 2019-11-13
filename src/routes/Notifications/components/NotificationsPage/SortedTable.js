@@ -1,7 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
 import { lighten, makeStyles } from '@material-ui/core/styles';
+import Switch from '@material-ui/core/Switch';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -10,15 +12,13 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
+import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -61,11 +61,18 @@ function stableSort(array, cmp) {
 }
 
 function getSorting(order, orderBy) {
-  return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
+  return order === 'desc'
+    ? (a, b) => desc(a, b, orderBy)
+    : (a, b) => -desc(a, b, orderBy);
 }
 
 const headCells = [
-  { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },
+  {
+    id: 'name',
+    numeric: false,
+    disablePadding: true,
+    label: 'Dessert (100g serving)',
+  },
   { id: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
   { id: 'fat', numeric: true, disablePadding: false, label: 'Fat (g)' },
   { id: 'carbs', numeric: true, disablePadding: false, label: 'Carbs (g)' },
@@ -73,7 +80,15 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-  const { classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
+  const {
+    classes,
+    onSelectAllClick,
+    order,
+    orderBy,
+    numSelected,
+    rowCount,
+    onRequestSort,
+  } = props;
   const createSortHandler = property => event => {
     onRequestSort(event, property);
   };
@@ -156,7 +171,11 @@ const EnhancedTableToolbar = props => {
       })}
     >
       {numSelected > 0 ? (
-        <Typography className={classes.title} color="inherit" variant="subtitle1">
+        <Typography
+          className={classes.title}
+          color="inherit"
+          variant="subtitle1"
+        >
           {numSelected} selected
         </Typography>
       ) : (
@@ -251,7 +270,7 @@ export default function EnhancedTable() {
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(
         selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
+        selected.slice(selectedIndex + 1)
       );
     }
 
@@ -273,7 +292,8 @@ export default function EnhancedTable() {
 
   const isSelected = name => selected.indexOf(name) !== -1;
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+  const emptyRows =
+    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
     <div className={classes.root}>
@@ -318,7 +338,12 @@ export default function EnhancedTable() {
                           inputProps={{ 'aria-labelledby': labelId }}
                         />
                       </TableCell>
-                      <TableCell component="th" id={labelId} scope="row" padding="none">
+                      <TableCell
+                        component="th"
+                        id={labelId}
+                        scope="row"
+                        padding="none"
+                      >
                         {row.name}
                       </TableCell>
                       <TableCell align="right">{row.calories}</TableCell>

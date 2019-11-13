@@ -1,13 +1,14 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import React from 'react';
+
+import CustomizedTables from './CustomizedTable';
+import DenseTable from './DenseTable';
+import MuiVirtualizedTable from './MuiVirtualizedTable';
 import styles from './NotificationsPage.styles';
 import SimpleTable from './SimpleTable';
-import DenseTable from './DenseTable';
 import SortedTable from './SortedTable';
-import CustomizedTables from './CustomizedTable';
 import StickyHeadTable from './StickyHeadTable';
-import MuiVirtualizedTable from './MuiVirtualizedTable';
 
 const useStyles = makeStyles(styles);
 

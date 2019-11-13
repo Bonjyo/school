@@ -1,10 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { Field } from 'redux-form';
 import TextField from 'components/FormTextField';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Field } from 'redux-form';
+
 import ProviderDataForm from '../ProviderDataForm';
 import styles from './AccountForm.styles';
 

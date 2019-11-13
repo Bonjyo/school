@@ -1,10 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Field } from 'redux-form';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from 'components/FormTextField';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Field } from 'redux-form';
 import { required, validateEmail } from 'utils/form';
+
 import styles from './SignupForm.styles';
 
 const useStyles = makeStyles(styles);

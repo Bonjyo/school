@@ -1,8 +1,8 @@
-import { get, pick } from 'lodash';
-import { isLoaded, isEmpty } from 'react-redux-firebase';
-import LoadableComponent from 'react-loadable';
-import { mapProps, branch, renderComponent } from 'recompose';
 import LoadingSpinner from 'components/LoadingSpinner';
+import { get, pick } from 'lodash';
+import LoadableComponent from 'react-loadable';
+import { isEmpty, isLoaded } from 'react-redux-firebase';
+import { branch, mapProps, renderComponent } from 'recompose';
 
 /**
  * Show a loading spinner when a condition is truthy. Used within

@@ -1,13 +1,13 @@
-import React, { Fragment, useState } from 'react';
-import PropTypes from 'prop-types';
-import { useFirebase } from 'react-redux-firebase';
-import { useHistory } from 'react-router-dom';
+import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import IconButton from '@material-ui/core/IconButton';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import { makeStyles } from '@material-ui/core/styles';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import { ACCOUNT_PATH } from 'constants/paths';
+import PropTypes from 'prop-types';
+import React, { Fragment, useState } from 'react';
+import { useFirebase } from 'react-redux-firebase';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
   buttonRoot: {

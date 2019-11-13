@@ -1,18 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
+import IconButton from '@material-ui/core/IconButton';
+import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-
-import { makeStyles } from '@material-ui/core/styles';
-import { useSelector } from 'react-redux';
-import { isLoaded, isEmpty } from 'react-redux-firebase';
 import { LIST_PATH } from 'constants/paths';
-import SecureMenu from './SecureMenu';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { isEmpty, isLoaded } from 'react-redux-firebase';
+import { Link } from 'react-router-dom';
+
 import DrawerMenu from './DrawerMenu';
 import LoginMenu from './LoginMenu';
 import styles from './Navbar.styles';
+import SecureMenu from './SecureMenu';
 
 const useStyles = makeStyles(styles);
 

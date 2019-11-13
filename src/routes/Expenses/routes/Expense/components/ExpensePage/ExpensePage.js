@@ -1,12 +1,13 @@
-import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { useFirebaseConnect, isLoaded } from 'react-redux-firebase';
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import Typography from '@material-ui/core/Typography';
 import LoadingSpinner from 'components/LoadingSpinner';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { isLoaded, useFirebaseConnect } from 'react-redux-firebase';
+import { useParams } from 'react-router-dom';
+
 import styles from './ExpensePage.styles';
 
 const useStyles = makeStyles(styles);

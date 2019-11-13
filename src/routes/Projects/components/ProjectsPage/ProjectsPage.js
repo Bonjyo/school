@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { isEmpty, isLoaded } from 'react-redux-firebase';
-import { Route, Switch } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import { useSelector } from 'react-redux';
-import { useFirebase, useFirebaseConnect } from 'react-redux-firebase';
-import ProjectRoute from 'routes/Projects/routes/Project';
-import { useNotifications } from 'modules/notification';
-import { renderChildren } from 'utils/router';
 import LoadingSpinner from 'components/LoadingSpinner';
-import ProjectTile from '../ProjectTile';
-import NewProjectTile from '../NewProjectTile';
+import { useNotifications } from 'modules/notification';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import {
+  isEmpty,
+  isLoaded,
+  useFirebase,
+  useFirebaseConnect,
+} from 'react-redux-firebase';
+import { Route, Switch } from 'react-router-dom';
+import ProjectRoute from 'routes/Projects/routes/Project';
+import { renderChildren } from 'utils/router';
+
 import NewProjectDialog from '../NewProjectDialog';
+import NewProjectTile from '../NewProjectTile';
+import ProjectTile from '../ProjectTile';
 import styles from './ProjectsPage.styles';
 
 const useStyles = makeStyles(styles);

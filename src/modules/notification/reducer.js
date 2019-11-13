@@ -1,6 +1,7 @@
+import { omit, without } from 'lodash';
 import { combineReducers } from 'redux';
-import { without, omit } from 'lodash';
-import { NOTIFICATION_SHOW, NOTIFICATION_DISMISS } from './actionTypes';
+
+import { NOTIFICATION_DISMISS, NOTIFICATION_SHOW } from './actionTypes';
 
 function notification(state = {}, action) {
   switch (action.type) {

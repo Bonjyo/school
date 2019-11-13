@@ -1,6 +1,6 @@
-import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { setDisplayName } from 'recompose';
+import { compose } from 'redux';
 import { UserIsAuthenticated } from 'utils/router';
 
 export default compose(

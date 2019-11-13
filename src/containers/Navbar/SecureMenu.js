@@ -1,26 +1,25 @@
-import React, { Fragment, useState } from 'react';
-import PropTypes from 'prop-types';
-import { useFirebase } from 'react-redux-firebase';
-import { useHistory } from 'react-router-dom';
+import Badge from '@material-ui/core/Badge';
+import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import IconButton from '@material-ui/core/IconButton';
+import { makeStyles } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import LockIcon from '@material-ui/icons/Lock';
 import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import Badge from '@material-ui/core/Badge';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
-
-import { makeStyles } from '@material-ui/core/styles';
+import MoreIcon from '@material-ui/icons/MoreVert';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 import {
   ACCOUNT_PATH,
   ALERTS_PATH,
+  FINANCE_PATH,
   NOTIFICATIONS_PATH,
   PROFILE_PATH,
-  FINANCE_PATH,
 } from 'constants/paths';
+import PropTypes from 'prop-types';
+import React, { Fragment, useState } from 'react';
+import { useFirebase } from 'react-redux-firebase';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
   buttonRoot: {

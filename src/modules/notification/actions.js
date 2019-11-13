@@ -1,7 +1,7 @@
 import {
-  NOTIFICATION_SHOW,
-  NOTIFICATION_DISMISS,
   NOTIFICATION_CLEAR,
+  NOTIFICATION_DISMISS,
+  NOTIFICATION_SHOW,
 } from './actionTypes';
 
 const defaultDismissTime = 2500; // 2.5 seconds

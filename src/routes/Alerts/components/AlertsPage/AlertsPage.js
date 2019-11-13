@@ -1,8 +1,9 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import styles from './AlertsPage.styles';
+import Typography from '@material-ui/core/Typography';
 import FloatingLabelInput from 'components/FloatingLabelInput';
+import React from 'react';
+
+import styles from './AlertsPage.styles';
 import AutoComplete from './AutoComplete';
 
 const useStyles = makeStyles(styles);

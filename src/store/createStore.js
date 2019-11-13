@@ -1,6 +1,7 @@
+import { getFirebase } from 'react-redux-firebase';
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import { getFirebase } from 'react-redux-firebase';
+
 import makeRootReducer from './reducers';
 
 export default (initialState = {}) => {
@@ -30,10 +31,7 @@ export default (initialState = {}) => {
   const store = createStore(
     makeRootReducer(),
     initialState,
-    compose(
-      applyMiddleware(...middleware),
-      ...enhancers
-    )
+    compose(applyMiddleware(...middleware), ...enhancers)
   );
 
   store.asyncReducers = {};

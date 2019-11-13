@@ -1,13 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   ACCOUNT_PATH,
   LIST_PATH,
   LOGIN_PATH,
-  SIGNUP_PATH,
   PROFILE_PATH,
+  SIGNUP_PATH,
 } from 'constants/paths';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 import styles from './HomePage.styles';
 
 const authWrapperUrl = 'https://github.com/mjrussell/redux-auth-wrapper';

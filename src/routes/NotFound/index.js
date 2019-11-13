@@ -1,5 +1,5 @@
-import Loadable from 'react-loadable';
 import LoadingSpinner from 'components/LoadingSpinner';
+import Loadable from 'react-loadable';
 
 export default {
   component: Loadable({

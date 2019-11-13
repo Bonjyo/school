@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import {
-  Select,
   FormControl,
-  InputLabel,
   FormHelperText,
+  InputLabel,
+  Select,
 } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const renderFromHelper = ({ touched, error }) => {
   if (!(touched && error)) {

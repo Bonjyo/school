@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Button,
   Dialog,
@@ -9,6 +7,8 @@ import {
   DialogTitle,
   withMobileDialog,
 } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 function CustomDialog({
   children,

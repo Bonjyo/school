@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import { reduxForm } from 'redux-form';
-import { setPropTypes, compose } from 'recompose';
 import { SIGNUP_FORM_NAME } from 'constants/formNames';
+import PropTypes from 'prop-types';
+import { compose, setPropTypes } from 'recompose';
+import { reduxForm } from 'redux-form';
 
 export default compose(
   // Set prop-types used in HOCs
