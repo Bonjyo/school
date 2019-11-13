@@ -1,63 +1,131 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
+import {
+  Button,
+  Grid,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Input,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Field } from 'redux-form';
 import TextField from 'components/FormTextField';
+import SelectField from 'components/FormSelectField';
 import { required } from 'utils/form';
+import DateUtil from 'utils/DateUtil';
 import styles from './NewExpenseDialog.styles';
 
 const useStyles = makeStyles(styles);
 
-function NewExpenseDialog({ handleSubmit, open, onRequestClose }) {
+function NewExpenseDialog({
+  handleSubmit,
+  pristine,
+  reset,
+  submitting,
+  open,
+  onRequestClose,
+}) {
   const classes = useStyles();
-
+  const today = new DateUtil(new Date());
   return (
-    <Dialog open={open} onClose={onRequestClose}>
+    <Dialog
+      disableBackdropClick
+      disableEscapeKeyDown
+      fullWidth={true}
+      maxWidth="sm"
+      open={open}
+      onClose={onRequestClose}
+    >
       <DialogTitle id="new-expense-dialog-title">New Expense</DialogTitle>
       <form onSubmit={handleSubmit} className={classes.inputs}>
         <DialogContent>
-          <Field
-            name="name"
-            component={TextField}
-            label="Expense Name"
-            validate={[required]}
-          />
-        </DialogContent>
-        <DialogContent>
-          <Field
-            name="amount"
-            component={TextField}
-            label="Amount"
-            validate={[required]}
-          />
-        </DialogContent>
-        <DialogContent>
-          <Field
-            name="date"
-            component={TextField}
-            label="Date"
-            validate={[required]}
-          />
-        </DialogContent>
-        <DialogContent>
-          <Field
-            name="category"
-            component={TextField}
-            label="Category"
-            validate={[required]}
-          />
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <Field
+                name="transaction_date"
+                type="date"
+                component={TextField}
+                label="Transaction Date"
+                validate={[required]}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <Field
+                name="posting_date"
+                type="date"
+                defaultValue={new Date()}
+                component={TextField}
+                label="Posting Date"
+                validate={[required]}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <Field
+                classes={classes}
+                name="card_used"
+                component={SelectField}
+                label="Card Used"
+                validate={[required]}
+                autoWidth
+                multiple
+                input={<Input />}
+                renderValue={selected => selected.join(', ')}
+              >
+                <option value="" />
+                <option value={'bofa'}>BofA</option>
+                <option value={'chess'}>Chess</option>
+                <option value={'amex'}>Amex Blue</option>
+              </Field>
+            </Grid>
+            <Grid item xs={6}>
+              <Field
+                classes={classes}
+                name="category"
+                component={SelectField}
+                label="Category of expense"
+                validate={[required]}
+                autoWidth
+                style={{ width: '95%' }}
+              >
+                <option value="" />
+                <option value={'bofa'}>Shopping</option>
+                <option value={'chess'}>Transportation</option>
+                <option value={'amex'}>Eating out</option>
+              </Field>
+            </Grid>
+            <Grid item xs={6}>
+              <Field
+                name="amount"
+                component={TextField}
+                label="Amount"
+                validate={[required]}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Field
+                name="description"
+                component={TextField}
+                label="Description"
+                validate={[required]}
+                multiline
+                rowsMax="4"
+                fullWidth
+                margin="normal"
+              />
+            </Grid>
+          </Grid>
         </DialogContent>
         <DialogActions>
-          <Button onClick={onRequestClose} color="secondary">
+          <Button autoFocus onClick={onRequestClose} color="secondary">
             Cancel
           </Button>
           <Button type="submit" color="primary">
-            Create
+            Ok
           </Button>
         </DialogActions>
       </form>
