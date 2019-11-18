@@ -6,10 +6,10 @@ export default theme => ({
     boxSizing: 'border-box',
     overflowY: 'scroll',
   },
-  tiles: {
+  container: {
+    alignItems: 'flex-start',
     display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    '-webkit-flex-flow': 'row wrap',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
   },
 });

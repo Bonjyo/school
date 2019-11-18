@@ -1,10 +1,10 @@
-import { FINANCE_PATH as path } from 'constants/paths';
+import { EXPENSES_PATH as path } from 'constants/paths';
 import { Loadable } from 'utils/components';
 
 export default {
   path,
   component: Loadable({
     loader: () =>
-      import(/* webpackChunkName: 'Expenses' */ './components/ExpensePage'),
+      import(/* webpackChunkName: 'Expenses' */ './components/ExpensesPage'),
   }),
 };

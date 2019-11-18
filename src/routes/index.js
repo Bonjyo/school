@@ -5,6 +5,7 @@ import CoreLayout from '../layouts/CoreLayout';
 import AccountRoute from './Account';
 import AlertsRoute from './Alerts';
 import FinanceRoute from './Finance';
+import ExpensesRoute from './Expenses';
 import Home from './Home';
 import LoginRoute from './Login';
 import NotFoundRoute from './NotFound';
@@ -26,6 +27,7 @@ export default function createRoutes(store) {
           LoginRoute,
           ProfileRoute,
           FinanceRoute,
+          ExpensesRoute,
           AlertsRoute,
           NotificationsRoute,
           /* Add More Routes Here */

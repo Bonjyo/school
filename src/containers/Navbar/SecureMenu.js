@@ -7,12 +7,14 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import LockIcon from '@material-ui/icons/Lock';
 import MailIcon from '@material-ui/icons/Mail';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import {
   ACCOUNT_PATH,
   ALERTS_PATH,
   FINANCE_PATH,
+  EXPENSES_PATH,
   NOTIFICATIONS_PATH,
   PROFILE_PATH,
 } from 'constants/paths';
@@ -62,6 +64,11 @@ function SecureMenu() {
   function goToFinance() {
     handleMenuClose();
     history.push(FINANCE_PATH);
+  }
+
+  function goToExpenses() {
+    handleMenuClose();
+    history.push(EXPENSES_PATH);
   }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -114,6 +121,12 @@ function SecureMenu() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <MenuItem onClick={goToExpenses}>
+        <IconButton aria-label="Expenses list" color="inherit">
+          <LocalAtmIcon />
+        </IconButton>
+        <p>Expenses</p>
+      </MenuItem>
       <MenuItem onClick={goToFinance}>
         <IconButton aria-label="Manage your finances" color="inherit">
           <MonetizationOnIcon />
@@ -165,6 +178,13 @@ function SecureMenu() {
     <Fragment>
       <div className={classes.grow} />
       <div className={classes.sectionDesktop}>
+        <IconButton
+          onClick={goToExpenses}
+          aria-label="Expenses list"
+          color="inherit"
+        >
+          <LocalAtmIcon />
+        </IconButton>
         <IconButton
           onClick={goToFinance}
           aria-label="Manage your finances"

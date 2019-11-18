@@ -1,4 +1,3 @@
-// import { AppsIcon, ListIcon } from '@material-ui/icons';
 import {
   Container,
   CssBaseline,
